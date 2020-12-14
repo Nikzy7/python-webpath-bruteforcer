@@ -1,4 +1,3 @@
-# website brute force attacker
 import requests
 import sys
 import os
@@ -63,15 +62,8 @@ def actionHandler():
     for word in wordList:
         urls.append(url_creator(inputURL,word))
 
-    # test code
-    # print(urls)
-
     for url in urls:
         statusCodeDictionary[url] = bruteForceAction(url)
-
-    # # test code
-    # print(statusCodeDictionary)
-
 
 # writing final output
 def outputGeneration():
@@ -90,15 +82,7 @@ def outputGeneration():
 
     file.close()
 
-# process check for inputProcessing()
-# def unitTest():
-#     print(errorCodes)
-#     print(wordFile)
-#     print(inputURL)
-#     print(sys.argv)
-
 if __name__ == "__main__":
     inputProcessing()
-    # unitTest()
     actionHandler()
     outputGeneration()
