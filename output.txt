@@ -1,1 +1,1 @@
-https://www.github.com/aminnaushad2 [Status code 200]
+https://www.w3schools.com/aminnaushad2 [Status code 404]https://www.w3schools.com/admin [Status code 404]https://www.w3schools.com/.git/config [Status code 404]https://www.w3schools.com/.htaccess [Status code 404]https://www.w3schools.com/backup.zip [Status code 404]https://www.w3schools.com/info [Status code 404]
