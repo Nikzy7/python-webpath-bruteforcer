@@ -19,12 +19,13 @@ def url_creator(inputSite,word):
 
 # possible multithread function
 def bruteForceAction(url):
+    global statusCodeDictionary
     try:
         response = requests.get(url)
-        return int(response.status_code)
+        statusCodeDictionary[url] = int(response.status_code)
     except:
         print("URL error for : " + url)
-        return 404
+        statusCodeDictionary[url] = 404
 
 
 # processing and filling variables
@@ -68,7 +69,7 @@ def actionHandler():
         urls.append(url_creator(inputURL,word))
 
     for url in urls:
-        allThreads.append(threading.Thread(target=bruteForceAction,args=(url)))
+        allThreads.append(threading.Thread(target=bruteForceAction,args=(url,)))
         # statusCodeDictionary[url] = bruteForceAction(url)
     
     for x in range(len(allThreads)):
