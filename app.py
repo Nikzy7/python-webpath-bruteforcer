@@ -75,7 +75,20 @@ def actionHandler():
 
 # writing final output
 def outputGeneration():
-    pass
+    global statusCodeDictionary
+    global errorCodes
+
+    file = open('output.txt','w')
+
+    print("Printing all results, but writing only required ones !")
+
+    for key,value in statusCodeDictionary.items():
+        print(key + " [Status code " + str(value) + "]")
+        if value in errorCodes:
+            to_write = key + " [Status code " + str(value) + "]"
+            file.write(to_write)
+
+    file.close()
 
 # process check for inputProcessing()
 # def unitTest():
