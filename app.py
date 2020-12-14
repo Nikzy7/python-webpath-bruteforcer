@@ -1,6 +1,7 @@
 import requests
 import sys
 import os
+import time
 
 # placeholder variable declaration
 inputURL = str()
@@ -83,6 +84,8 @@ def outputGeneration():
     file.close()
 
 if __name__ == "__main__":
+    start_time = time.time()
     inputProcessing()
     actionHandler()
     outputGeneration()
+    print("time elapsed : "+str(time.time()-start_time))
