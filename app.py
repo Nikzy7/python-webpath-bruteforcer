@@ -12,7 +12,7 @@ statusCodeDictionary = dict()
 
 # function to generate url from input and word
 def url_creator(inputSite,word):
-    pass
+    return "https://" + inputSite + "/" + word
 
 # possible multithread function
 def bruteForceAction():
@@ -47,10 +47,17 @@ def inputProcessing():
         print(e)
         sys.exit()
 
-
 # handling main action
 def actionHandler():
-    pass
+    global wordList
+    global inputURL
+    urls = []
+    for word in wordList:
+        urls.append(url_creator(inputURL,word))
+
+    # test code
+    # print(urls)
+
 
 # writing final output
 def outputGeneration():

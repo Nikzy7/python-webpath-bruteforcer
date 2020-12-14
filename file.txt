@@ -1,0 +1,5 @@
+admin
+info
+.git/config
+.htaccess
+backup.zip
