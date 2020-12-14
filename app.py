@@ -15,8 +15,14 @@ def url_creator(inputSite,word):
     return "https://" + inputSite + "/" + word
 
 # possible multithread function
-def bruteForceAction():
-    pass
+def bruteForceAction(url):
+    try:
+        response = requests.get(url)
+        return int(response.status_code)
+    except:
+        print("URL error for : " + url)
+        return 404
+
 
 # processing and filling variables
 def inputProcessing():
@@ -52,11 +58,19 @@ def actionHandler():
     global wordList
     global inputURL
     urls = []
+    global statusCodeDictionary
+
     for word in wordList:
         urls.append(url_creator(inputURL,word))
 
     # test code
     # print(urls)
+
+    for url in urls:
+        statusCodeDictionary[url] = bruteForceAction(url)
+
+    # # test code
+    # print(statusCodeDictionary)
 
 
 # writing final output
