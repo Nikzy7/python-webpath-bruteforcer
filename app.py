@@ -1,6 +1,8 @@
+import threading
 import requests
 import sys
 import os
+import time
 
 # placeholder variable declaration
 inputURL = str()
@@ -9,18 +11,21 @@ wordList = list()
 errorCodes = list()
 statusCodeDictionary = dict()
 
+allThreads = []
+
 # function to generate url from input and word
 def url_creator(inputSite,word):
     return "https://" + inputSite + "/" + word
 
 # possible multithread function
 def bruteForceAction(url):
+    global statusCodeDictionary
     try:
         response = requests.get(url)
-        return int(response.status_code)
+        statusCodeDictionary[url] = int(response.status_code)
     except:
         print("URL error for : " + url)
-        return 404
+        statusCodeDictionary[url] = 404
 
 
 # processing and filling variables
@@ -58,17 +63,26 @@ def actionHandler():
     global inputURL
     urls = []
     global statusCodeDictionary
+    global allThreads
 
     for word in wordList:
         urls.append(url_creator(inputURL,word))
 
     for url in urls:
-        statusCodeDictionary[url] = bruteForceAction(url)
+        allThreads.append(threading.Thread(target=bruteForceAction,args=(url,)))
+        # statusCodeDictionary[url] = bruteForceAction(url)
+    
+    for x in range(len(allThreads)):
+        allThreads[x].start()
 
 # writing final output
 def outputGeneration():
     global statusCodeDictionary
     global errorCodes
+    global allThreads
+
+    for x in range(len(allThreads)):
+        allThreads[x].join()
 
     file = open('output.txt','w')
 
@@ -83,6 +97,8 @@ def outputGeneration():
     file.close()
 
 if __name__ == "__main__":
+    start_time = time.time()
     inputProcessing()
     actionHandler()
     outputGeneration()
+    print("--- %s seconds ---" % (time.time() - start_time))
