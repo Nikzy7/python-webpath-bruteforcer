@@ -1,4 +1,4 @@
-# Cloudsek Hackathon [![Made with Python](https://img.shields.io/badge/python-3.5.2-grey?style=for-the-badge&labelColor=yellow&logo=python)](https://www.python.org/)   [![Uses Multithreading](https://img.shields.io/badge/Uses-Multi%20threading-grey?style=for-the-badge&labelColor=blue)](https://www.python.org/)
+# Cloudsek Hackathon [![Made with Python](https://img.shields.io/badge/python-3.5.2%20|%203.8.0-grey?style=for-the-badge&labelColor=yellow&logo=python)](https://www.python.org/)   [![Uses Multithreading](https://img.shields.io/badge/Uses-Multi%20threading-grey?style=for-the-badge&labelColor=blue)](https://www.python.org/)
 
 ## Problem Statement by CloudSEK: Build a minimal web path bruteforcer: Optimised memory, CPU usage
 
