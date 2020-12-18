@@ -30,3 +30,7 @@ python app.py [url] [word file] [status code]
 ```
 python app.py www.github.com file.txt 200 302
 ```
+
+## Note
+For a NodeJS implementation of this solution, go to my repo :
+[JavaScript Webpath Bruteforcer](https://github.com/Nikzy7/javascript-webpath-bruteforcer)
